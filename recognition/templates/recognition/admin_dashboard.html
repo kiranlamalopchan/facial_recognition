@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+    body{
+    background: url('{% static "recognition/img/mainbackground.jpg"%}') no-repeat center center fixed;
+    background-size: cover;
+    }
+    </style>
+    <script  type='text/javascript'
+    src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'>
+    $(document).ready(function(){
+    $("#train").click(function(){
+    alert("Training begun. This may take upto 5 minutes. Please wait.");
+    });
+    });
+    </script>
+    <style>
+    h4{
+    margin-bottom: 1.5em;
+    padding-top: 30px;
+    }
+    img{
+    border-radius:50%;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    }
+    img:hover{
+    -webkit-box-shadow: 2px 2px 21px 0px rgba(0, 3, 0, 0.91);
+    -moz-box-shadow:    2px 2px 21px 0px rgba(0, 3, 0, 0.91);
+    box-shadow:         2px 2px 21px 0px rgba(0, 3, 0, 0.91);
+    border:2px solid #fff;
+    }
+    h3{
+    margin-bottom: 1.3em;
+    }
+    a{
+    color:inherit
+    }
+    a:hover{
+    color:inherit;
+    text-decoration: none;
+    }
+    .att{
+    padding-right: 150px;
+    }
+    .lgn{
+    padding-right: 80px;
+    }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-lg-12"
+        style="background: rgba(0,0,0,0.6);
+        margin-top:3em;margin-bottom:5em;
+        padding-top:1em;
+        padding-bottom:1em;
+        color:#fff;border-radius:10px;
+        -webkit-box-shadow: 2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+        -moz-box-shadow:    2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+        box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
+        <div class="col-md-12">
+          <a href="{% url 'logout' %}"><h4 class="text-right text-info"> <i class="fad fa-sign-out-alt"></i> Logout </h4></a>
+          <h1 class="text-center section-title" style="margin-bottom:2em">Welcome, Admin.</h1>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-3">
+            <a href="{%url 'register' %}"><img src="{% static 'recognition/img/register.png' %}" class="img-responsive" style="width:150px;height:150px ;" /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="{%url 'add-photos'%}"><img src="{% static 'recognition/img/addphotos.png' %}" class="img-responsive" style="width:150px;height:150px ;" /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="{%url 'train' %}" id="train" ><img src="{% static 'recognition/img/train.jpeg' %}" class="img-responsive" style="width:150px;height:150px ;" /></a>
+          </div>
+          <div class="col-md-3">
+            <a href="{%url 'view-attendance-home' %}"><img src="{% static 'recognition/img/reports.png' %}" class="img-responsive" style="width:150px;height:150px;"/></a>
+          </div>
+        </div>
+        <div class="row text-center mt-3 mb-3">
+          <div class="col md-3">
+            <h6 class="text-center">Register New Student</h6>
+          </div>
+          <div class="col md-3">
+            <h6 class="text-centert">Add Photos</h6>
+          </div>
+          <div class="col md-3">
+            <h6 class="text-center">Train</h6>
+          </div>
+          <div class="col md-3">
+            <h6 class="text-center">View Attendance Reports </h6>
+          </div>
+        </div>
+        {% if messages %}
+          {% for message in messages%}
+            <div class="alert alert-{{message.tags}} text-center text-danger" > {{message}}
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

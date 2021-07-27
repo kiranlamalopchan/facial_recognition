@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+    body{
+    background: url('{% static "recognition/img/mainbackground.jpg"%}') no-repeat center center fixed;
+    background-size: cover;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-lg-12"
+        style="background: rgba(0,0,0,0.6);
+        margin-top:1em;
+        margin-bottom:1em;
+        color:#fff;
+        border-radius:10px;
+        -webkit-box-shadow: 2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+        -moz-box-shadow:    2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+        box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2">
+              <li class="nav-item mr-5">
+                <a class="nav-link active text-info font-weight-bold" aria-current="page" href="{%url 'view-attendance-student' %}"><i class="fas fa-users-class"></i> By Student </a>
+              </li>
+              <li class="nav-item mr-5">
+                <a class="nav-link active text-info font-weight-bold" aria-current="page" href="{% url 'view-attendance-date' %}"><i class="far fa-calendar-alt"></i> By Date</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-info font-weight-bold" href="{% url 'dashboard' %}"><i class="fad fa-user-shield"></i> Admin Dashboard</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Statisics -->
+        <div class="card">
+          <div class="card-body mx-auto">
+            <h4 class="text-info text-center font-weight-bold"> Today's Statistics </h4>
+            <div class="row mx">
+              <div class="card m-3" style="width: 20em; background-color: royalblue; text-align : center; color: white;">
+                <div class="card-body">
+                  <h5 class="card-title"> <i class="fas fa-users"></i><b> Total Number Of students</b></h5>
+                  
+                  <p class="card-text" style="font-size: 28px;"> <b>{{total_num_of_student }}</b></p>
+                  
+                </div>
+              </div>
+              <div class="card m-3" style="width: 20em; background-color: green; text-align : center; color: white;">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="far fa-user-chart"></i><b> Students present today</b></h5>
+                  <p class="card-text" style="font-size: 28px;"><b> {{student_present_today }}</b></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 2em; margin-bottom: 2em;">
+          <div class="card-body">
+            <div class="row mb-3" >
+              <div class="col-md-6">
+                <h2> Last Week </h2>
+                <div class="card" style="width: 30em;">
+                  <img class="card-img-top" src="{% static 'recognition/img/attendance_graphs/last_week/1.png'%}" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text text-info" style="text-align: center;">Number of students present each day</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h2> This Week </h2>
+                <div class="card" style="width: 30em;">
+                  <img class="card-img-top" src="{% static 'recognition/img/attendance_graphs/this_week/1.png'%}" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text text-info" style="text-align: center;">Number of students present each day</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
